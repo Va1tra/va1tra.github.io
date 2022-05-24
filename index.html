@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Cors</title>
+</head>
+<body>
+<form action="https://asc-api.staging.amity.co/admin/v1/blacklist/records" method="post">
+    <input name="alternateName" value="tt" hidden>
+    <button type="submit">Submit</button>
+</form>
+<script>
+  function doRequest(url) {
+    const crossoriginget = new XMLHttpRequest();
+
+    crossoriginget.open('get', url, true);
+    crossoriginget.withCredentials = true;
+    // crossoriginget.onload = reqListener;
+    crossoriginget.send();
+
+    function reqListener() {
+      console.log('responseText', crossoriginget.responseText);
+    }
+  }
+
+  // doRequest('https://api.staging.amity.co/admin/v1/admin');
+  // doRequest('https://api.staging.amity.co/admin/v1/admins'); // kinda protected-->
+  // doRequest('https://api.staging.amity.co/admin/v1/whitelist/records');
+  // doRequest('https://asc.amity.co/admin/v1/blacklist/records');
+  // doRequest('https://api.staging.amity.co/admin/v1/platformapp/attribute');
+
+
+  doRequest('https://api.staging.amity.co/admin/v1/blacklist/records');
+  doRequest('https://asc-api.staging.amity.co/admin/v1/blacklist/records');
+  doRequest('https://asc.staging.amity.co/admin/v1/blacklist/records');
+</script>
+</body>
+</html>
